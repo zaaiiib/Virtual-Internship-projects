@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zaib Noorkhan | Portfolio</title>
+    <meta name="description" content="Personal portfolio and web development projects by Zaib Noorkhan.">
+    <meta property="og:title" content="Zaib Noorkhan | Portfolio">
+    <meta property="og:description" content="Personal portfolio and web development projects.">
+    <meta property="og:type" content="website">
+
+    <style>
+        :root {
+            --bg-color: #0f172a;
+            --card-bg: #1e293b;
+            --text-main: #f8fafc;
+            --text-muted: #94a3b8;
+            --accent: #38bdf8;
+            --accent-hover: #0ea5e9;
+            --border-color: #334155;
+            --focus-ring: #f43f5e;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            line-height: 1.6;
+            color: var(--text-main);
+            background-color: var(--bg-color);
+            margin: 0;
+            padding: 0;
+        }
+
+        a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visible {
+            outline: 3px solid var(--focus-ring);
+            outline-offset: 3px;
+        }
+
+        .skip-link {
+            position: absolute;
+            top: -50px;
+            left: 1rem;
+            background: var(--accent);
+            color: #000;
+            padding: 0.75rem 1.25rem;
+            z-index: 100;
+            text-decoration: none;
+            font-weight: 600;
+            border-radius: 0 0 6px 6px;
+            transition: top 0.2s ease;
+        }
+
+        .skip-link:focus {
+            top: 0;
+        }
+
+        .site-header {
+            background: var(--card-bg);
+            border-bottom: 1px solid var(--border-color);
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 10;
+        }
+
+        .logo {
+            font-weight: 700;
+            font-size: 1.25rem;
+            text-decoration: none;
+            color: var(--text-main);
+            letter-spacing: -0.025em;
+        }
+
+        .nav-list {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            gap: 2rem;
+        }
+
+        .nav-link {
+            text-decoration: none;
+            color: var(--text-muted);
+            font-weight: 500;
+            transition: color 0.2s;
+        }
+
+        .nav-link:hover {
+            color: var(--accent);
+        }
+
+        .main-content {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 3rem 1.5rem;
+        }
+
+        .section-block {
+            margin-bottom: 4rem;
+        }
+
+        .hero-title {
+            font-size: 2.75rem;
+            font-weight: 800;
+            margin-top: 0;
+            margin-bottom: 1rem;
+            letter-spacing: -0.03em;
+            color: var(--text-main);
+        }
+
+        .hero-desc {
+            font-size: 1.2rem;
+            color: var(--text-muted);
+            max-width: 650px;
+            margin-bottom: 0;
+        }
+
+        .section-title {
+            font-size: 1.75rem;
+            font-weight: 700;
+            border-bottom: 2px solid var(--border-color);
+            padding-bottom: 0.5rem;
+            margin-bottom: 1.5rem;
+            color: var(--text-main);
+        }
+
+        .project-card {
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            padding: 1.75rem;
+            border-radius: 8px;
+            transition: transform 0.2s, border-color 0.2s;
+        }
+
+        .project-card:hover {
+            border-color: var(--accent);
+            transform: translateY(-2px);
+        }
+
+        .project-title {
+            margin-top: 0;
+            font-size: 1.25rem;
+            font-weight: 600;
+        }
+
+        .project-desc {
+            color: var(--text-muted);
+            margin-bottom: 1.25rem;
+        }
+
+        .project-link {
+            display: inline-block;
+            text-decoration: none;
+            color: var(--accent);
+            font-weight: 600;
+        }
+
+        .project-link:hover {
+            color: var(--accent-hover);
+            text-decoration: underline;
+        }
+
+        .contact-form {
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            padding: 2rem;
+            border-radius: 8px;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+            font-size: 0.95rem;
+        }
+
+        .form-input,
+        .form-textarea {
+            width: 100%;
+            padding: 0.75rem 1rem;
+            background: var(--bg-color);
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            color: var(--text-main);
+            font-size: 1rem;
+            box-sizing: border-box;
+            transition: border-color 0.2s;
+        }
+
+        .form-input:focus,
+        .form-textarea:focus {
+            border-color: var(--accent);
+            outline: none;
+        }
+
+        .submit-btn {
+            background-color: var(--accent);
+            color: #0f172a;
+            padding: 0.75rem 1.75rem;
+            border: none;
+            border-radius: 6px;
+            font-size: 1rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: background-color 0.2s;
+        }
+
+        .submit-btn:hover {
+            background-color: var(--accent-hover);
+        }
+
+        .site-footer {
+            text-align: center;
+            padding: 2rem;
+            background: var(--card-bg);
+            border-top: 1px solid var(--border-color);
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+    </style>
+</head>
+<body>
+
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+
+    <header class="site-header">
+        <a href="#" class="logo">Zaib.dev</a>
+        <nav aria-label="Main Navigation">
+            <ul class="nav-list">
+                <li><a href="#about" class="nav-link">About</a></li>
+                <li><a href="#projects" class="nav-link">Projects</a></li>
+                <li><a href="#contact" class="nav-link">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main id="main-content" class="main-content">
+        
+        <section id="about" class="section-block">
+            <h1 class="hero-title">Hi, I'm Zaib Noorkhan</h1>
+            <p class="hero-desc">An aspiring developer focused on building clean, fully accessible, and performant web interfaces.</p>
+        </section>
+
+        <section id="projects" class="section-block">
+            <h2 class="section-title">Featured Projects</h2>
+            <article class="project-card">
+                <h3 class="project-title">Project Alpha</h3>
+                <p class="project-desc">A high-performance web application designed with modern UI standards and semantic architecture.</p>
+                <a href="#" class="project-link" aria-label="View source code for Project Alpha on GitHub">View Project &rarr;</a>
+            </article>
+        </section>
+
+        <section id="contact" class="section-block">
+            <h2 class="section-title">Get in Touch</h2>
+            <form action="#" method="POST" class="contact-form" aria-label="Contact Form">
+                <div class="form-group">
+                    <label for="name" class="form-label">Name <span aria-hidden="true">*</span></label>
+                    <input type="text" id="name" name="name" class="form-input" required aria-required="true" autocomplete="name">
+                </div>
+
+                <div class="form-group">
+                    <label for="email" class="form-label">Email <span aria-hidden="true">*</span></label>
+                    <input type="email" id="email" name="email" class="form-input" required aria-required="true" autocomplete="email">
+                </div>
+
+                <div class="form-group">
+                    <label for="message" class="form-label">Message <span aria-hidden="true">*</span></label>
+                    <textarea id="message" name="message" rows="5" class="form-textarea" required aria-required="true"></textarea>
+                </div>
+
+                <button type="submit" class="submit-btn">Send Message</button>
+            </form>
+        </section>
+
+    </main>
+
+    <footer class="site-footer">
+        <p>&copy; 2026 Zaib Noorkhan. All rights reserved.</p>
+    </footer>
+
+</body>
+</html>
